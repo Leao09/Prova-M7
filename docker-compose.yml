@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  server:
+    image: felipeleao0902/prova-server
+    build:
+      context: ./backend
+    command: bash -c 'uvicorn main:app --host 0.0.0.0'
+    ports:
+      - "8000:8000"
+
+  frontend:
+    image: felipeleao0902/prova-frontend
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
